@@ -69,7 +69,7 @@ The compose stack starts:
 
 Flyway migrations run automatically when the backend starts.
 
-The backend image is built from [src/main/docker/Dockerfile.jvm](C:\apps\personal\awesome-pizza\awesome-pizza\src\main\docker\Dockerfile.jvm).
+The backend image is built from [`src/main/docker/Dockerfile.jvm`](src/main/docker/Dockerfile.jvm).
 
 ## Useful endpoints
 

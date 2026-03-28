@@ -13,15 +13,18 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.6.3/mapstruct-processor-1.6.3.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.6.3/mapstruct-processor-1.6.3.jar" />
         </processorPath>
-        <module name="awesome-pizza" />
+        <module name="awesome-pizza-backend" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="awesome-pizza" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="awesome-pizza" options="-parameters" />
+      <module name="awesome-pizza-backend" options="-parameters" />
     </option>
   </component>
 </project>
