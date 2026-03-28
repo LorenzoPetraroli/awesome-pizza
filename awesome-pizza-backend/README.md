@@ -1,4 +1,4 @@
-# Awesome Pizza
+# Awesome Pizza Backend
 
 Awesome Pizza is a Quarkus backend that manages customer pizza orders without registration.
 Customers create an order and receive a public tracking code. The kitchen can inspect the FIFO

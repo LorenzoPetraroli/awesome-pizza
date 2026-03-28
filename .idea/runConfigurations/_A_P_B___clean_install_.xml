@@ -1,26 +1,19 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="awesome-pizza [quarkus:dev]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+  <configuration default="false" name=" A.P.B  [clean,install]" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings">
         <MavenRunnerSettings>
           <option name="delegateBuildToMaven" value="false" />
           <option name="environmentProperties">
-            <map>
-              <entry key="AUTOMATE_PIZZA_WORKER" value="false" />
-              <entry key="POSTGRES_DB" value="awesome_pizza" />
-              <entry key="POSTGRES_HOST" value="localhost" />
-              <entry key="POSTGRES_PASSWORD" value="awesome_user" />
-              <entry key="POSTGRES_PORT" value="5432" />
-              <entry key="POSTGRES_USER" value="awesome_user" />
-            </map>
+            <map />
           </option>
           <option name="jreName" value="#USE_PROJECT_JDK" />
           <option name="mavenProperties">
             <map />
           </option>
           <option name="passParentEnv" value="true" />
-          <option name="skipTests" value="true" />
+          <option name="skipTests" value="false" />
           <option name="vmOptions" value="" />
         </MavenRunnerSettings>
       </option>
@@ -32,7 +25,8 @@
           </option>
           <option name="goals">
             <list>
-              <option value="quarkus:dev" />
+              <option value="clean" />
+              <option value="install" />
             </list>
           </option>
           <option name="multimoduleDir" />
@@ -44,7 +38,7 @@
             <list />
           </option>
           <option name="resolveToWorkspace" value="false" />
-          <option name="workingDirPath" value="$PROJECT_DIR$/awesome-pizza" />
+          <option name="workingDirPath" value="C:\apps\personal\awesome-pizza\awesome-pizza-backend" />
         </MavenRunnerParameters>
       </option>
     </MavenSettings>

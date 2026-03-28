@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres:16-alpine
-    container_name: awesome-pizza-postgres
+    container_name: awesome-pizza-backend-postgres
     environment:
       POSTGRES_DB: awesome_pizza
       POSTGRES_USER: awesome_pizza
@@ -16,11 +16,11 @@ services:
       timeout: 5s
       retries: 10
 
-  awesome-pizza-api:
+  awesome-pizza-backend-api:
     build:
       context: .
       dockerfile: src/main/docker/Dockerfile.jvm
-    container_name: awesome-pizza-api
+    container_name: awesome-pizza-backend-api
     depends_on:
       postgres:
         condition: service_healthy

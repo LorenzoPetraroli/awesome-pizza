@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="awesome-pizza [test]" type="MavenRunConfiguration" factoryName="Maven">
+  <configuration default="false" name=" A.P.B  [test]" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings">
@@ -37,7 +37,7 @@
             <list />
           </option>
           <option name="resolveToWorkspace" value="false" />
-          <option name="workingDirPath" value="$PROJECT_DIR$/awesome-pizza" />
+          <option name="workingDirPath" value="C:\apps\personal\awesome-pizza\awesome-pizza-backend" />
         </MavenRunnerParameters>
       </option>
     </MavenSettings>
