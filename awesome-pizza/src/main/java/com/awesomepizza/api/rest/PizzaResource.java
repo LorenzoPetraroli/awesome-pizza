@@ -35,7 +35,8 @@ public class PizzaResource {
                 .map(pizzaType -> new PizzaTypeResponse(
                         pizzaType.name(),
                         pizzaType.getDisplayName(),
-                        pizzaType.getIngredientsDescription()
+                        pizzaType.getIngredientsDescription(),
+                        pizzaType.getUnitPrice()
                 ))
                 .toList();
     }

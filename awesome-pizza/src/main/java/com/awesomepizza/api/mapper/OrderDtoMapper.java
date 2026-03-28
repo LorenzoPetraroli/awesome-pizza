@@ -15,6 +15,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 import jakarta.inject.Inject;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -31,10 +32,13 @@ public abstract class OrderDtoMapper {
     }
 
     @Mapping(target = "status", source = "status", qualifiedByName = "orderStatusToString")
+    @Mapping(target = "totalPrice", source = "items", qualifiedByName = "itemsToTotalPrice")
     public abstract OrderResponse toResponse(Order order);
 
     @Mapping(target = "pizzaType", source = "pizzaType", qualifiedByName = "pizzaTypeToString")
     @Mapping(target = "displayName", source = "pizzaType", qualifiedByName = "pizzaTypeToDisplayName")
+    @Mapping(target = "unitPrice", source = "pizzaType", qualifiedByName = "pizzaTypeToUnitPrice")
+    @Mapping(target = "lineTotal", source = ".", qualifiedByName = "orderItemToLineTotal")
     protected abstract OrderItemResponse toItemResponse(OrderItem item);
 
     @Mapping(target = "currentOrder", source = "currentOrder")
@@ -59,5 +63,27 @@ public abstract class OrderDtoMapper {
     @Named("pizzaTypeToDisplayName")
     protected String pizzaTypeToDisplayName(PizzaType pizzaType) {
         return pizzaType != null ? pizzaType.getDisplayName() : null;
+    }
+
+    @Named("pizzaTypeToUnitPrice")
+    protected BigDecimal pizzaTypeToUnitPrice(PizzaType pizzaType) {
+        return pizzaType != null ? pizzaType.getUnitPrice() : null;
+    }
+
+    @Named("orderItemToLineTotal")
+    protected BigDecimal orderItemToLineTotal(OrderItem item) {
+        if (item == null || item.pizzaType() == null) {
+            return null;
+        }
+        return item.pizzaType().getUnitPrice().multiply(BigDecimal.valueOf(item.quantity()));
+    }
+
+    @Named("itemsToTotalPrice")
+    protected BigDecimal itemsToTotalPrice(List<OrderItem> items) {
+        return items == null
+                ? BigDecimal.ZERO
+                : items.stream()
+                        .map(this::orderItemToLineTotal)
+                        .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 }
