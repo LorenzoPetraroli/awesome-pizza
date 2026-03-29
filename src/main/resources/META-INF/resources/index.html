@@ -403,14 +403,6 @@
                 </div>
                 <span class="link-arrow">&#8594;</span>
             </a>
-            <a href="/q/health" class="link-card">
-                <div class="link-icon">&#128154;</div>
-                <div class="link-text">
-                    <strong>Health Check</strong>
-                    <span>Service status</span>
-                </div>
-                <span class="link-arrow">&#8594;</span>
-            </a>
             <a href="https://github.com/LorenzoPetraroli/awesome-pizza-backend#readme" class="link-card" id="readme-link" target="_blank">
                 <div class="link-icon">&#128214;</div>
                 <div class="link-text">
@@ -441,50 +433,6 @@
             </div>
             <div class="status-step">
                 <span class="status-chip status-chip--done">COMPLETED</span>
-            </div>
-        </div>
-    </section>
-
-    <hr>
-
-    <section class="fade-up">
-        <div class="section-label">&#9670; Customer endpoints</div>
-        <div class="endpoint-group">
-            <div class="endpoint fade-up">
-                <span class="method method--post">POST</span>
-                <span class="endpoint-path">/api/orders</span>
-                <span class="endpoint-desc">Create a new order</span>
-            </div>
-            <div class="endpoint fade-up">
-                <span class="method method--get">GET</span>
-                <span class="endpoint-path">/api/orders/<span class="param">{code}</span></span>
-                <span class="endpoint-desc">Track order status</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="fade-up">
-        <div class="section-label section-label--amber">&#9670; Kitchen endpoints</div>
-        <div class="endpoint-group">
-            <div class="endpoint fade-up">
-                <span class="method method--get">GET</span>
-                <span class="endpoint-path">/api/kitchen/summary</span>
-                <span class="endpoint-desc">Queue overview</span>
-            </div>
-            <div class="endpoint fade-up">
-                <span class="method method--post">POST</span>
-                <span class="endpoint-path">/api/kitchen/orders/<span class="param">{code}</span>/start</span>
-                <span class="endpoint-desc">Start preparation</span>
-            </div>
-            <div class="endpoint fade-up">
-                <span class="method method--patch">PATCH</span>
-                <span class="endpoint-path">/api/kitchen/orders/<span class="param">{code}</span>/ready</span>
-                <span class="endpoint-desc">Mark as ready</span>
-            </div>
-            <div class="endpoint fade-up">
-                <span class="method method--patch">PATCH</span>
-                <span class="endpoint-path">/api/kitchen/orders/<span class="param">{code}</span>/complete</span>
-                <span class="endpoint-desc">Complete order</span>
             </div>
         </div>
     </section>

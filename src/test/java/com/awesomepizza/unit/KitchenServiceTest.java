@@ -78,7 +78,37 @@ class KitchenServiceTest {
         current.startPreparation(startedAt);
         repository.save(current);
 
-        assertThrows(OrderAlreadyInPreparationException.class, () -> service.startOrderByCode("ORD-ACTIVE1"));
+        assertThrows(InvalidOrderStateException.class, () -> service.startOrderByCode("ORD-ACTIVE1"));
+    }
+
+    @Test
+    void shouldRejectStartingAnotherOrderWhenOneIsAlreadyInPreparation() {
+        InMemoryOrderRepository repository = new InMemoryOrderRepository();
+        KitchenService service = new KitchenService(
+                repository,
+                new KitchenWorkflowValidator(),
+                Clock.fixed(Instant.parse("2026-03-28T10:10:00Z"), ZoneOffset.UTC)
+        );
+
+        Order current = orderFactory.createPlacedOrder(
+                UUID.randomUUID(),
+                "ORD-ACTIVE1",
+                "Mario Rossi",
+                List.of(orderItemFactory.create(UUID.randomUUID(), PizzaType.MARGHERITA, 1)),
+                Instant.parse("2026-03-28T10:00:00Z")
+        );
+        current.startPreparation(Instant.parse("2026-03-28T10:01:00Z"));
+        repository.save(current);
+
+        repository.save(orderFactory.createPlacedOrder(
+                UUID.randomUUID(),
+                "ORD-NEXT001",
+                "Luigi Verdi",
+                List.of(orderItemFactory.create(UUID.randomUUID(), PizzaType.DIAVOLA, 1)),
+                Instant.parse("2026-03-28T10:05:00Z")
+        ));
+
+        assertThrows(OrderAlreadyInPreparationException.class, () -> service.startOrderByCode("ORD-NEXT001"));
     }
 
     @Test
