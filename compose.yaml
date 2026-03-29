@@ -4,14 +4,14 @@ services:
     container_name: awesome-pizza-backend-postgres
     environment:
       POSTGRES_DB: awesome_pizza
-      POSTGRES_USER: awesome_pizza
-      POSTGRES_PASSWORD: awesome_pizza
+      POSTGRES_USER: awesome_user
+      POSTGRES_PASSWORD: awesome_user
     ports:
       - "5432:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U awesome_pizza -d awesome_pizza"]
+      test: ["CMD-SHELL", "pg_isready -U awesome_user -d awesome_pizza"]
       interval: 10s
       timeout: 5s
       retries: 10
@@ -28,8 +28,8 @@ services:
       POSTGRES_HOST: postgres
       POSTGRES_PORT: 5432
       POSTGRES_DB: awesome_pizza
-      POSTGRES_USER: awesome_pizza
-      POSTGRES_PASSWORD: awesome_pizza
+      POSTGRES_USER: awesome_user
+      POSTGRES_PASSWORD: awesome_user
       CORS_ORIGINS: http://localhost:3000
     ports:
       - "8081:8081"

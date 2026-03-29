@@ -11,6 +11,14 @@
             </ModuleState>
           </value>
         </entry>
+        <entry key="awesome-pizza-backend">
+          <value>
+            <ModuleState>
+              <option name="hash" value="-116507064" />
+              <option name="version" value="1" />
+            </ModuleState>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
