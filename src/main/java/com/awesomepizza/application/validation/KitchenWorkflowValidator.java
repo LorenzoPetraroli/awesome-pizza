@@ -17,6 +17,9 @@ public class KitchenWorkflowValidator {
     }
 
     public void validateCanStartSelectedOrder(Order currentInPreparation, Order selectedOrder) {
+        if (selectedOrder.getStatus() == OrderStatus.IN_PREPARATION) {
+            throw new InvalidOrderStateException("The selected order is already in preparation");
+        }
         if (currentInPreparation != null) {
             throw new OrderAlreadyInPreparationException();
         }
